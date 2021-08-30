@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "i2c.h": "c",
-        "stdint.h": "c",
-        "bmp280_driver.h": "c"
-    }
-}
