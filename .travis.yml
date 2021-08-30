@@ -4,8 +4,9 @@ compiler: gcc
 os: Windows
 
 before_script:
-  - choco upgrade cmake
+  - npm install --global xpm@latest
   - xpm install --global @xpack-dev-tools/arm-none-eabi-gcc@latest --verbose
+  - choco upgrade cmake
   - mkdir build
   - cd build
   - sed -i '6d' ../externals/pico-sdk/src/rp2_common/pico_standard_link/CMakeLists.txt
