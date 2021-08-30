@@ -3,6 +3,10 @@ compiler: gcc
 
 os: Windows
 
+addons:
+  packages:
+    xpm
+
 before_script:
   - npm install --global xpm@latest
   - xpm install --global @xpack-dev-tools/arm-none-eabi-gcc@latest --verbose
