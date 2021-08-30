@@ -1,0 +1,16 @@
+language: c
+compiler: gcc
+
+os: linux
+dist: xenial
+sudo: require
+
+before_script:
+  - sudo apt-get install -y gcc cmake make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
+  - mkdir build
+  - cd build
+  - sed -i '6d' ../externals/pico-sdk/src/rp2_common/pico_standard_link/CMakeLists.txt
+
+script:
+  - cmake -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
+  - cmake --build .
