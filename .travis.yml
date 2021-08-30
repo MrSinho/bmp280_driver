@@ -7,7 +7,6 @@ sudo: require
 
 before_script:
   - sudo apt-get install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
-  - sudo apt-get install build-essential
   - wget http://www.cmake.org/files/v3.13/cmake-3.13.3.tar.gz
   - tar xf cmake-3.13.3.tar.gz
   - cd cmake-3.13.3
@@ -20,4 +19,4 @@ before_script:
 
 script:
   - cmake -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
-  - cmake --build .
+  - make
