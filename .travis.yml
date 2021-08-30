@@ -6,7 +6,8 @@ dist: xenial
 sudo: require
 
 before_script:
-  - sudo apt-get install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
+  - sudo apt purge cmake
+  - sudo apt install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
   - wget http://www.cmake.org/files/v3.13/cmake-3.13.3.tar.gz
   - tar xf cmake-3.13.3.tar.gz
   - cd cmake-3.13.3
