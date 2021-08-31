@@ -9,6 +9,7 @@ before_script:
   #- move CMakeLists.txt old/CMakeLists.txt
   #- ren _CMakeLists.txt CMakeLists.txt
   #- echo "#define FAKE_NEW_DELETE_C_RASPBERRY_TELL_ME_WHY" > new_delete.c
+  - sudo apt install -y gcc-arm-none-eabi
   - sed -i '6d' CMakeLists.txt
   - cd ../../../../../
   - choco upgrade cmake
