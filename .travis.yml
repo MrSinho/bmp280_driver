@@ -2,11 +2,12 @@ language: c
 compiler: gcc
 
 os: linux
-dist: xenial
+dist: trusty
 sudo: require
 
 before_script:
-  - sudo apt update
+  - sudo apt install -y cmake 
+  - cmake --version
   - sudo apt install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
   - mkdir build
   - cd build
