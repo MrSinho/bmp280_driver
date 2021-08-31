@@ -10,7 +10,7 @@ before_script:
   #- ren _CMakeLists.txt CMakeLists.txt
   #- echo "#define FAKE_NEW_DELETE_C_RASPBERRY_TELL_ME_WHY" > new_delete.c
   - wget --no-check-certificate https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/gcc-arm-none-eabi-10.3-2021.07-win32.zip
-  - unzip gcc-arm-none-eabi-bin.zip
+  - unzip gcc-arm-none-eabi-10.3-2021.07-win32.zip
   - mkdir arm-gcc-toolchain
   - export PATH=$HOME/gcc-arm-none-eabi-bin/gcc-arm-none-eabi-10.3-2021.07/bin$PATH
   - sed -i '6d' CMakeLists.txt
