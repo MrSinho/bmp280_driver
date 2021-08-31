@@ -28,7 +28,7 @@ int bmp280_i2c_setup() {
     sleep_ms(20);
 
     uint8_t chip_ID;
-    bmp280_i2c_read_reg(BMP280_CHIP_REG, 1, &chip_ID);   
+    bmp280_i2c_read_reg(BMP280_CHIP_ID_REG, 1, &chip_ID);   
     if (chip_ID != BMP280_CHIP_ID) {
         return -1;
     }
@@ -47,7 +47,7 @@ int bmp280_i2c_setup() {
 }
 
 void bmp280_i2c_calibrate(bmp280* device) {
-    bmp280_i2c_read_reg(BMP280_CAL_REG_T1, 24, device->coefficients);
+    bmp280_i2c_read_reg(BMP280_CAL_T1_REG, 24, device->coefficients);
     // Read coefficients from device, we use this to compute the temperature and pressure
     //bmp280_i2c_read_reg(BMP280_CAL_REG_T1, 24, device->coefficients);
 }

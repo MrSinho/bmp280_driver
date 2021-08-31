@@ -1,9 +1,5 @@
 # bmp280_driver
  
-## Build Status
-
-Linux: 
-
 ## Setup
 
 ```bash
