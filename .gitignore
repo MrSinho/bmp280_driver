@@ -55,3 +55,4 @@ build
 bin
 externals
 .vscode
+.travis.yml
