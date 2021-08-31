@@ -6,7 +6,7 @@ dist: trusty
 sudo: require
 
 before_script:
-  - sudo apt install -y cmake 
+  - sudo apt install -y cmake3
   - cmake --version
   - sudo apt install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
   - mkdir build
