@@ -4,11 +4,12 @@ compiler: gcc
 os: windows
 before_script:
   - cd externals/pico-sdk/src/rp2_common/pico_standard_link
-  - get-content CMakeLists.txt | %{$_ -replace "new_delete.cpp","new_delete.c"} > _CMakeLists.txt
-  - mkdir old
-  - move CMakeLists.txt old/CMakeLists.txt
-  - ren _CMakeLists.txt CMakeLists.txt
-  - echo "#define FAKE_NEW_DELETE_C_RASPBERRY_TELL_ME_WHY" > new_delete.c
+  #- get-content CMakeLists.txt | %{$_ -replace "new_delete.cpp","new_delete.c"} > _CMakeLists.txt
+  #- mkdir old
+  #- move CMakeLists.txt old/CMakeLists.txt
+  #- ren _CMakeLists.txt CMakeLists.txt
+  #- echo "#define FAKE_NEW_DELETE_C_RASPBERRY_TELL_ME_WHY" > new_delete.c
+  - sed -i '6d' CMakeLists.txt
   - cd ../../../../../
   - choco upgrade cmake
   - mkdir build
