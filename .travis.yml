@@ -11,6 +11,8 @@ before_script:
   - sed -i '6d' CMakeLists.txt
   - choco upgrade cmake
   - mkdir build
+  - cd gcc-arm-none-eabi-10.3-2021.07-win32 ###
+  - dir ###
   - cd build
 
 script:
