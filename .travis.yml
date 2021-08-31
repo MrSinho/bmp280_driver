@@ -7,13 +7,12 @@ before_script:
   - cd ../../../../../
   - wget --no-check-certificate https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/gcc-arm-none-eabi-10.3-2021.07-win32.zip
   - unzip gcc-arm-none-eabi-10.3-2021.07-win32.zip
-  - export PATH=$TRAVIS_BUILD_DIR/gcc-arm-none-eabi-10.3-2021.07-win32/bin$PATH
+  #- export PATH=$TRAVIS_BUILD_DIR/gcc-arm-none-eabi-10.3-2021.07-win32/bin$PATH
   - sed -i '6d' CMakeLists.txt
   - choco upgrade cmake
   - mkdir build
   - cd build
 
 script:
-  - cmake -G"MinGW Makefiles" -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
+  - cmake -DPICO_TOOLCHAIN_PATH="gcc-arm-none-eabi-10.3-2021.07-win32/bin" -G"MinGW Makefiles" -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
   - mingw32-make
-  
