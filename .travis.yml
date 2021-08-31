@@ -5,8 +5,14 @@ os: linux
 dist: trusty
 sudo: require
 
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - cmake
+
 before_script:
-  - sudo apt install -y cmake3
   - cmake --version
   - sudo apt install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
   - mkdir build
