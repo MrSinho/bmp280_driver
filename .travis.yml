@@ -13,9 +13,9 @@ before_script:
   - mkdir build
   - cd gcc-arm-none-eabi-10.3-2021.07 ###
   - dir ###
-  - cd ..
+  - cd .. ###
   - cd build
 
 script:
-  - cmake -DPICO_TOOLCHAIN_PATH="gcc-arm-none-eabi-10.3-2021.07-win32/bin" -G"MinGW Makefiles" -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
+  - cmake -DPICO_TOOLCHAIN_PATH="gcc-arm-none-eabi-10.3-2021.07/bin" -G"MinGW Makefiles" -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
   - mingw32-make
