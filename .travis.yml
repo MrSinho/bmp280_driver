@@ -4,7 +4,7 @@ compiler: gcc
 os: windows
 before_script:
   - cd externals/pico-sdk/src/rp2_common/pico_standard_link
-  - cd ../../../../
+  - cd ../../../../../
   - wget --no-check-certificate https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/gcc-arm-none-eabi-10.3-2021.07-win32.zip
   - unzip gcc-arm-none-eabi-10.3-2021.07-win32.zip
   - export PATH=$TRAVIS_BUILD_DIR/gcc-arm-none-eabi-10.3-2021.07-win32/bin$PATH
