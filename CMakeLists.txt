@@ -16,11 +16,10 @@ target_include_directories(bmp280_driver PUBLIC
 target_link_libraries(bmp280_driver PUBLIC
     pico_stdlib
     hardware_i2c
-    hardware_clocks
-    hardware_pwm
-    hardware_spi
 )
-
+set_target_properties(bmp280_driver PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
+)
 
 option(BMP280_DRIVER_BUILD_EXAMPLE OFF)
 if(BMP280_DRIVER_BUILD_EXAMPLE) 
@@ -42,13 +41,3 @@ pico_enable_stdio_usb(bmp280_example 1)
 pico_add_extra_outputs(bmp280_example)
 endif(BMP280_DRIVER_BUILD_EXAMPLE)
 
-set_target_properties(bmp280_driver PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
-)
-
-if(BMP280_DRIVER_BUILD_EXAMPLE)
-# MA PORCO CANE IO QUI BESTEMMIO PERCHE CAZZO NON VA VABBE FANCULO
-#set_target_properties(bmp280_example PROPERTIES
-#    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
-#)
-endif(BMP280_DRIVER_BUILD_EXAMPLE)

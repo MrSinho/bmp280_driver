@@ -1,28 +1,22 @@
 #include "bmp280_driver.h"
 
-void bmp280_i2c_write_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, const uint32_t size, uint8_t* src) {
-    uint8_t _reg = reg;
-    i2c_write_blocking(port, address, &reg, 1, 1);
-    i2c_write_blocking(port, address, src, size, 0);
+#include <stdlib.h>
+#include <pico/stdlib.h>
+
+void bmp280_i2c_write_reg(const uint8_t reg, const uint32_t size, uint8_t* src) {
+    uint8_t* buff = (uint8_t*)calloc(size + 1, 1);
+    buff[0] = reg;
+    for (uint32_t i = 0; i < size; i++) {
+        buff[i+1] = src[i];
+    }
+    i2c_write_blocking(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, buff, size+1, 0);
+    free(buff);
 }
 
-void bmp280_i2c_read_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, const uint32_t size, uint8_t* dst) {
+void bmp280_i2c_read_reg(const uint8_t reg, const uint32_t size, uint8_t* dst) {
     uint8_t _reg = reg;
-    i2c_write_blocking(port, address, &reg, 1, 1);
-    i2c_read_blocking(port, address, dst, size, 0);
-}
-
-
-void i2c_write_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, const uint32_t size, uint8_t* src) {
-    uint8_t _reg = reg;
-    i2c_write_blocking(port, address, &reg, 1, 1);
-    i2c_write_blocking(port, address, src, size, 0);
-}
-
-void i2c_read_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, const uint32_t size, uint8_t* dst) {
-    uint8_t _reg = reg;
-    i2c_write_blocking(port, address, &reg, 1, 1);
-    i2c_read_blocking(port, address, dst, size, 0);
+    i2c_write_blocking(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, &reg, 1, 1);
+    i2c_read_blocking(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, dst, size, 0);
 }
 
 /*
@@ -30,31 +24,37 @@ void i2c_read_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, co
 */
 
 int bmp280_i2c_setup() {
+
+    sleep_ms(20);
+
     uint8_t chip_ID;
-    bmp280_i2c_read_reg(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, BMP280_CHIP_REG, 1, &chip_ID);   
+    bmp280_i2c_read_reg(BMP280_CHIP_REG, 1, &chip_ID);   
     if (chip_ID != BMP280_CHIP_ID) {
         return -1;
     }
 
     //reset registers
     uint8_t reset_val = BMP280_RESET_VAL;
-    bmp280_i2c_write_reg(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, BMP280_RESET_REG, 1, &reset_val);
+    bmp280_i2c_write_reg(BMP280_RESET_REG, 1, &reset_val);
     sleep_ms(10);
 
     // power ctl
     uint8_t ctl_data = (((BMP280_OVERSCAN_X2 << 3) | BMP280_OVERSCAN_X16) << 2) | BMP280_MODE_NORMAL;
-    bmp280_i2c_write_reg(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, BMP280_POWER_CTL_REG, 1, &ctl_data);
+    bmp280_i2c_write_reg(BMP280_POWER_CTL_REG, 1, &ctl_data);
     sleep_ms(10);
     return 1;
+
 }
 
 void bmp280_i2c_calibrate(bmp280* device) {
-    bmp280_i2c_read_reg(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, BMP280_CAL_REG_T1, 24, device->coefficients);
+    bmp280_i2c_read_reg(BMP280_CAL_REG_T1, 24, device->coefficients);
+    // Read coefficients from device, we use this to compute the temperature and pressure
+    //bmp280_i2c_read_reg(BMP280_CAL_REG_T1, 24, device->coefficients);
 }
 
 void bmp280_i2c_read_pressure(bmp280* device) {
     uint8_t data[3];
-    bmp280_i2c_read_reg(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, BMP280_PRESSURE_REG_LOW, 3, data);
+    bmp280_i2c_read_reg(BMP280_PRESSURE_REG_LOW, 3, data);
 
     double var1 = 0.0;
     double var2 = 0.0;
@@ -84,7 +84,7 @@ void bmp280_i2c_read_pressure(bmp280* device) {
 void bmp280_i2c_read_temperature(bmp280* device) {
 
     uint8_t data[3];
-    bmp280_i2c_read_reg(BMP280_DEFAULT_I2C_PORT, BMP280_I2C_ADDRESS, BMP280_TEMPERATURE_REG_LOW, 3, data);
+    bmp280_i2c_read_reg(BMP280_TEMPERATURE_REG_LOW, 3, data);
     
     double var1 = 0.0;
     double var2 = 0.0;

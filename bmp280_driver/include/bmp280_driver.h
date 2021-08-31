@@ -6,10 +6,6 @@
 
 #define BMP280_DEFAULT_I2C_PORT i2c0
 
-extern void bmp280_i2c_read_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, const uint32_t size, uint8_t* dst);
-
-extern void bmp280_i2c_write_reg(i2c_inst_t* port, const uint8_t address, const uint8_t reg, const uint32_t size, uint8_t* src);
-
 /*
     BMP280
 */
@@ -60,6 +56,12 @@ typedef struct bmp280 {
     double temperature;
 
 } bmp280;
+
+
+
+extern void bmp280_i2c_read_reg(const uint8_t reg, const uint32_t size, uint8_t* dst);
+
+extern void bmp280_i2c_write_reg(const uint8_t reg, const uint32_t size, uint8_t* src);
 
 
 
