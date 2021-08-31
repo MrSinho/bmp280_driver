@@ -9,7 +9,8 @@ before_script:
   #- move CMakeLists.txt old/CMakeLists.txt
   #- ren _CMakeLists.txt CMakeLists.txt
   #- echo "#define FAKE_NEW_DELETE_C_RASPBERRY_TELL_ME_WHY" > new_delete.c
-  - sudo apt install -y gcc-arm-none-eabi
+  - wget -UseBasicParsing https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.07/gcc-arm-none-eabi-10.3-2021.07-win32.zip -o gcc-arm-none-eabi-bin.zip
+  - Expand-Archive gcc-arm-none-eabi-bin.zip -DestinationPath gcc-arm-none-eabi-bin
   - sed -i '6d' CMakeLists.txt
   - cd ../../../../../
   - choco upgrade cmake
