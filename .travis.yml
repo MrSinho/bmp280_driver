@@ -7,7 +7,6 @@ sudo: require
 
 before_script:
   - sudo apt update
-  - sudo apt upgrade -y cmake
   - sudo apt install -y gcc make gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib
   - mkdir build
   - cd build
