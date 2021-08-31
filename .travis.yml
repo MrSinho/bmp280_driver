@@ -16,3 +16,4 @@ before_script:
 script:
   - cmake -G"MinGW Makefiles" -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
   - mingw32-make
+  
