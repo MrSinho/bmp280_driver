@@ -3,8 +3,9 @@ add_definitions(-DCMAKE_EXPORT_COMPILE_COMMANDS=ON)
 
 if(NOT DEFINED PICO_SDK_PATH)
 set(PICO_SDK_PATH ${CMAKE_CURRENT_SOURCE_DIR}/external/pico-sdk)
-include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 endif()
+
+include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
 project(bmp280_driver C)
 
