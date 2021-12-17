@@ -23,7 +23,7 @@ git clone https://github.com/mrsinho/bmp280_driver.git
 cd bmp280_driver
 mkdir build
 cd build
-cmake ..	#-G"your generator of choice" -DBMP280_DRIVER_BUILD_EXAMPLE=ON
+cmake ..	-DPICO_SDK_PATH=path #-G"your generator of choice" -DBMP280_DRIVER_BUILD_EXAMPLE=ON
 cmake --build .
 ```
 
