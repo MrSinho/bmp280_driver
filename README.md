@@ -14,7 +14,7 @@ mkdir build
 cd build
 sudo bash scripts/pico-sdk_prerequisites.bash #for linux
 start scripts/pico-sdk_prerequisites.bat #for windows
-cmake ..	#-G"your generator of choice" -DBMP280_DRIVER_BUILD_EXAMPLE=ON
+cmake .. -DBMP280_DRIVER_BUILD_EXAMPLE=ON
 cmake --build .
 ```
 otherwise:
@@ -23,7 +23,7 @@ git clone https://github.com/mrsinho/bmp280_driver.git
 cd bmp280_driver
 mkdir build
 cd build
-cmake ..	-DPICO_SDK_PATH=path #-G"your generator of choice" -DBMP280_DRIVER_BUILD_EXAMPLE=ON
+cmake -DPICO_SDK_PATH=path -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
 cmake --build .
 ```
 
