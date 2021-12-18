@@ -2,9 +2,10 @@
 
 A C library that reads pressure and temperature data from the Bosch BMP280 chip for the Raspberry Pi Pico, using the Pico SDK by Raspberry.
 
-## Status
-![linux_badge](.ShCI/linux-status.svg)
-![windows_badge](.ShCI/windows-status.svg)
+## [Build status](https://github.com/MrSinho/PlyImporter/.ShCI)
+
+[![linux_badge](.ShCI/linux-status.svg)](https://github.com/MrSinho/PlyImporter/.ShCI/linux-log.md)
+[![windows_badge](.ShCI/windows-status.svg)](https://github.com/MrSinho/PlyImporter/.ShCI/windows-log.md)
 
 ## Setup
 If you don't have installed the pico sdk:
