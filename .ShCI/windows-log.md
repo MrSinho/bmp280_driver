@@ -1,7 +1,7 @@
 # bmp280_driver
 ![windows_badge](windows-status.svg)
 ## [Windows build logs:](https://github.com/MrSinho/ShCI)
-  
+  `Build ran for 74.62s`
 ```bash $shci call$
 choco install -y curl mingw cmake
 Chocolatey v0.11.2
@@ -44,7 +44,7 @@ cd bmp280_driver && mkdir build && cd build && cmake -G"MinGW Makefiles" -DPICO_
 -- Building example code for bmp280
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/sino3/Desktop/GitHub/ShCI-implementation/bin/Debug/bmp280_driver/build
+-- Build files have been written to: C:/Users/sino3/Desktop/GitHub/ShCI-implementation/bin/bmp280_driver/build
 Scanning dependencies of target bs2_default
 [  0%] Building ASM object pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/compile_time_choice.S.obj
 [  1%] Linking ASM executable bs2_default.elf
@@ -120,7 +120,7 @@ Scanning dependencies of target bmp280_driver
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/sino3/Desktop/GitHub/ShCI-implementation/bin/Debug/bmp280_driver/build/elf2uf2
+-- Build files have been written to: C:/Users/sino3/Desktop/GitHub/ShCI-implementation/bin/bmp280_driver/build/elf2uf2
 [ 45%] Performing build step for 'ELF2UF2Build'
 [ 50%] Building CXX object CMakeFiles/elf2uf2.dir/main.cpp.obj
 [100%] Linking CXX executable elf2uf2.exe
