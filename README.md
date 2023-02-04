@@ -33,7 +33,7 @@ mkdir build
 cd build
 ```
 
-If you have an environment variable named `PICO_SDK_PATH` which points the [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk) root directory, do:
+If you have an environment variable named `PICO_SDK_PATH` which points to a [Raspberry Pi Pico SDK](https://github.com/raspberrypi/pico-sdk) root directory, do:
 
 ```bash
 cmake -G"your-generator" -DBMP280_DRIVER_BUILD_EXAMPLE=ON ..
