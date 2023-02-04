@@ -6,8 +6,8 @@ A C library that reads pressure and temperature data from the Bosch BMP280 chip 
 
 ## [Build status](https://github.com/MrSinho/bmp280_driver/tree/main/.ShCI)
 
-[![linux_badge](.ShCI/linux-status.svg)](https://github.com/MrSinho/bmp280_driver/tree/main/.ShCI/linux-log.md)
-[![windows_badge](.ShCI/windows-status.svg)](https://github.com/MrSinho/bmp280_driver/tree/main/.ShCI/windows-log.md)
+[![linux_badge](.shci/linux-exit_code.svg)](.shci/linux-log.md)
+[![windows_badge](.shci/windows-exit_code.svg)](.shci/windows-log.md)
 
 ---
 
