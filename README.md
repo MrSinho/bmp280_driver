@@ -12,7 +12,7 @@ A C library that reads pressure and temperature data from the Bosch BMP280 chip 
 ---
 
 * [Clone repository](#clone-repository)
-* [Generate project files and compile](#generate-project-files-and-compile)
+* [Generate project files and build](#generate-project-files-and-build)
 * [Force gcc compiler only](#force-gcc-compiler-only)
 
 ---
