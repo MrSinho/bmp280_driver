@@ -57,6 +57,6 @@ The binary UF2 file is located at `build/`
 If you don't want to use the C++ features and stick to the arm gcc compiler only, set `ON` the `BMP280_DRIVER_FORCE_C_COMPILER` variable. The command shown below will run successfully only if the line cointaining `new_delete.cpp` is deleted or commented out from `pico-sdk-directory/src/rp2_common/pico_standard_link/CMakeLists.txt`. There's a [fork](https://github.com/mrsinho/pico-sdk-c) of the `pico-sdk` which is already set up for that purpose. Link: [`https://github.com/mrsinho/pico-sdk-c`](https://github.com/mrsinho/pico-sdk-c)
 
 ```bash
-cmake -cmake -DPICO_SDK_PATH="your-pico-sdk-path" -G"your-generator" -DBMP280_DRIVER_BUILD_EXAMPLE=ON -DBMP280_DRIVER_FORCE_C_COMPILER=ON ..
+cmake -DPICO_SDK_PATH="your-pico-sdk-path" -G"your-generator" -DBMP280_DRIVER_BUILD_EXAMPLE=ON -DBMP280_DRIVER_FORCE_C_COMPILER=ON ..
 cmake --build .
 ```
